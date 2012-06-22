@@ -11,27 +11,35 @@ module Mastermind
     end
 
     def guess(guess)
-      @output.puts "+" * exact_matches(guess) + "-" * number_matches(guess)
+      marker = Marker.new(@code)
+      @output.puts "+" * marker.exact_matches(guess) +
+                   "-" * marker.number_matches(guess)
     end
 
-    private
-    def exact_match?(guess, index)
-      @code[index] == guess[index]
-    end
-
-    def number_match?(guess, index)
-      @code.include?(guess[index]) && !exact_match?(guess, index)
-    end
-
-    def exact_matches(guess)
-      4.times.inject(0) do |matches, index|
-        matches + (exact_match?(guess, index) ? 1 : 0 )
+    class Marker
+      def initialize(code)
+        @code = code
       end
-    end
 
-    def number_matches(guess)
-      4.times.inject(0) do |matches, index|
-        matches + (number_match?(guess, index) ? 1 : 0)
+      def exact_matches(guess)
+        4.times.inject(0) do |matches, index|
+          matches + (exact_match?(guess, index) ? 1 : 0 )
+        end
+      end
+
+      def number_matches(guess)
+        4.times.inject(0) do |matches, index|
+          matches + (number_match?(guess, index) ? 1 : 0)
+        end
+      end
+
+      private
+      def exact_match?(guess, index)
+        @code[index] == guess[index]
+      end
+
+      def number_match?(guess, index)
+        @code.include?(guess[index]) && !exact_match?(guess, index)
       end
     end
   end
