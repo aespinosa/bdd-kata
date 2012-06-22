@@ -10,7 +10,7 @@ module Mastermind
     end
 
     def guess(guess)
-      
+      @output.puts ""
     end
   end
 end

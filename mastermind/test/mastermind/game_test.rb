@@ -13,6 +13,12 @@ class GameTest < Test::Unit::TestCase
     game.start "1234"
   end
 
+  def test_guess_with_no_matches_sends_mark_with_blank
+    game.start '1234'
+
+    output.expects(:puts).with("")
+    game.guess '5555'
+  end
 
   private
   def game
