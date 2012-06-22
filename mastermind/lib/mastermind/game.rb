@@ -11,14 +11,18 @@ module Mastermind
     end
 
     def guess(guess)
-      mark = if exact_match? guess, 0
-               "+"
-             elsif number_match? guess, 0
-               "-"
-             else
-               ""
-             end
-      @output.puts mark
+      marks = ''
+      4.times do |index|
+        mark = if exact_match? guess, index
+                 "+"
+               elsif number_match? guess, index
+                 "-"
+               else
+                 ""
+               end
+        marks << mark
+      end
+      @output.puts marks
     end
 
     private

@@ -37,6 +37,12 @@ class GameTest < Test::Unit::TestCase
     game.guess "1555"
   end
 
+  def test_guess_with_2_matches
+    game.start "1234"
+    output.expects(:puts).with("--")
+    game.guess "2355"
+  end
+
   private
   def game
     @game ||= Game.new output
