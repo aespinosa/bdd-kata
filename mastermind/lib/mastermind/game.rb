@@ -11,11 +11,12 @@ module Mastermind
     end
 
     def guess(guess)
-      if @code.include? guess[0]
-        @output.puts "-"
-      else
-        @output.puts ""
-      end
+      mark = if @code.include? guess[0]
+               "-"
+             else
+               ""
+             end
+      @output.puts mark
     end
   end
 end
