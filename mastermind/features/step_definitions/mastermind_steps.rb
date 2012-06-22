@@ -18,7 +18,7 @@ end
 
 When /^I start a new game$/ do
   game = Mastermind::Game.new output
-  game.start
+  game.start "1234"
 end
 
 Then /^the game should say "(.*?)"$/ do |message|
