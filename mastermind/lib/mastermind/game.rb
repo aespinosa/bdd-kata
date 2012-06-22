@@ -13,14 +13,10 @@ module Mastermind
     def guess(guess)
       marks = ''
       4.times do |index|
-        mark = if exact_match? guess, index
-                 "+"
-               elsif number_match? guess, index
-                 "-"
-               else
-                 ""
-               end
-        marks << mark
+        marks << "+" if exact_match? guess, index
+      end
+      4.times do |index|
+        marks << "-" if number_match? guess, index
       end
       @output.puts marks
     end
@@ -31,7 +27,7 @@ module Mastermind
     end
 
     def number_match?(guess, index)
-      @code.include? guess[index]
+      @code.include?(guess[index]) && !exact_match?(guess, index)
     end
   end
 end

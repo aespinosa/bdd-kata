@@ -39,8 +39,18 @@ class GameTest < Test::Unit::TestCase
 
   def test_guess_with_2_matches
     game.start "1234"
+
     output.expects(:puts).with("--")
+
     game.guess "2355"
+  end
+
+  def test_guess_with_1_number_and_1_exact_match
+    game.start "1234"
+
+    output.expects(:puts).with("+-")
+
+    game.guess "2535"
   end
 
   private
