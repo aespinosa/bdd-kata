@@ -5,12 +5,17 @@ module Mastermind
     end
 
     def start(code)
+      @code = code
       @output.puts "Welcome to Mastermind!"
       @output.puts "Enter guess:"
     end
 
     def guess(guess)
-      @output.puts ""
+      if @code.include? guess[0]
+        @output.puts "-"
+      else
+        @output.puts ""
+      end
     end
   end
 end
