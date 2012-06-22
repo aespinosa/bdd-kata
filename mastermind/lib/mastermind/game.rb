@@ -6,6 +6,7 @@ module Mastermind
 
     def start
       @output.puts "Welcome to Mastermind!"
+      @output.puts "Enter guess:"
     end
   end
 end
