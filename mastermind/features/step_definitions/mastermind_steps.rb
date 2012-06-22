@@ -12,3 +12,7 @@ end
 Given /^the secret code is "(.*?)"$/ do |code|
   game.start code
 end
+
+When /^I guess "(.*?)"$/ do |guess|
+  game.guess guess
+end

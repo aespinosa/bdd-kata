@@ -8,5 +8,9 @@ module Mastermind
       @output.puts "Welcome to Mastermind!"
       @output.puts "Enter guess:"
     end
+
+    def guess(guess)
+      
+    end
   end
 end
