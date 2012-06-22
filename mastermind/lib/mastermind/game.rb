@@ -11,12 +11,23 @@ module Mastermind
     end
 
     def guess(guess)
-      mark = if @code.include? guess[0]
+      mark = if exact_match? guess, 0
+               "+"
+             elsif number_match? guess, 0
                "-"
              else
                ""
              end
       @output.puts mark
+    end
+
+    private
+    def exact_match?(guess, index)
+      @code[index] == guess[index]
+    end
+
+    def number_match?(guess, index)
+      @code.include? guess[index]
     end
   end
 end
