@@ -13,44 +13,12 @@ class GameTest < Test::Unit::TestCase
     game.start "1234"
   end
 
-  def test_guess_with_no_matches
-    game.start '1234'
-
-    output.expects(:puts).with("")
-
-    game.guess '5555'
-  end
-
-  def test_guess_with_1_match
-    game.start '1234'
-
-    output.expects(:puts).with("-")
-
-    game.guess '2555'
-  end
-
-  def test_guess_with_1_exact_match
-    game.start '1234'
-
-    output.expects(:puts).with("+")
-
-    game.guess "1555"
-  end
-
-  def test_guess_with_2_matches
+  def test_guess_send_mark_to_output
     game.start "1234"
 
-    output.expects(:puts).with("--")
+    output.expects(:puts).with("++++")
 
-    game.guess "2355"
-  end
-
-  def test_guess_with_1_number_and_1_exact_match
-    game.start "1234"
-
-    output.expects(:puts).with("+-")
-
-    game.guess "2535"
+    game.guess "1234"
   end
 
   private
