@@ -7,7 +7,7 @@ class GameTest < Test::Unit::TestCase
 
     output.expects(:puts).with "Welcome to Mastermind!"
 
-    game.start
+    game.start "1234"
   end
 
   def test_start_prompts_for_first_guess
@@ -16,7 +16,7 @@ class GameTest < Test::Unit::TestCase
 
     output.expects(:puts).with "Enter guess:"
 
-    game.start
+    game.start "1234"
   end
 
 end

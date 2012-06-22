@@ -4,7 +4,7 @@ module Mastermind
       @output = output
     end
 
-    def start(code=nil)
+    def start(code)
       @output.puts "Welcome to Mastermind!"
       @output.puts "Enter guess:"
     end
