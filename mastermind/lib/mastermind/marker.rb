@@ -12,9 +12,7 @@ module Mastermind
     end
 
     def number_matches
-      4.times.inject(0) do |matches, index|
-        matches + (number_match?(index) ? 1 : 0)
-      end
+      total_matches - exact_matches
     end
 
     private
@@ -25,6 +23,17 @@ module Mastermind
     def number_match?(index)
       @code.include?(@guess[index]) && !exact_match?(index)
     end
+
+    def total_matches
+      count = 0
+      code = @code.each_char.to_a
+      @guess.each_char do |n|
+        if code.include? n
+          code.delete_at code.index(n)
+          count += 1
+        end
+      end
+      count
+    end
   end
 end
-
