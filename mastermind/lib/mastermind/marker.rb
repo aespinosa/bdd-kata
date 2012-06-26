@@ -27,13 +27,13 @@ module Mastermind
     def total_matches
       count = 0
       code = @code.each_char.to_a
-      @guess.each_char do |n|
-        if code.include? n
-          code.delete_at code.index(n)
-          count += 1
-        end
+      @guess.each_char.inject(0) do |count, n|
+        count + (delete_first(code, n) ? 1 : 0)
       end
-      count
+    end
+
+    def delete_first(code, n)
+      code.delete_at(code.index(n)) if code.include? n
     end
   end
 end
