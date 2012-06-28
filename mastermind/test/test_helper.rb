@@ -1,4 +1,5 @@
 require 'test/unit'
+require 'turn/autorun'
 require 'mocha'
 
 $: << File.expand_path('../../lib', __FILE__)
