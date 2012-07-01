@@ -2,7 +2,7 @@ require 'test_helper'
 
 class GameTest < Test::Unit::TestCase
   def test_start_sends_a_welcome_message
-    output.expects(:puts).with "Welcome to Mastermind!"
+    output.expects(:puts).with "Welcome to CodeBreaker!"
 
     game.start "1234"
   end

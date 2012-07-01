@@ -3,7 +3,7 @@
 $: << File.expand_path('../../lib', __FILE__)
 require 'mastermind'
 
-game = Mastermind::Game.new($stdout)
+game = CodeBreaker::Game.new($stdout)
 game.start "1234"
 
 while guess = gets.chomp

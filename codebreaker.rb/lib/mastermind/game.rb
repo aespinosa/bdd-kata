@@ -1,4 +1,4 @@
-module Mastermind
+module CodeBreaker
   class Game
     def initialize(output)
       @output = output
@@ -6,7 +6,7 @@ module Mastermind
 
     def start(code)
       @code = code
-      @output.puts "Welcome to Mastermind!"
+      @output.puts "Welcome to CodeBreaker!"
       @output.puts "Enter guess:"
     end
 

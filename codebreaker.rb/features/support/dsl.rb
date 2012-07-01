@@ -1,4 +1,4 @@
-module MastermindDsl
+module CodeBreakerDsl
   class Output
     def messages
       @messages ||= []
@@ -15,8 +15,8 @@ module MastermindDsl
   end
 
   def game
-    @game ||= Mastermind::Game.new output
+    @game ||= CodeBreaker::Game.new output
   end
 end
 
-World(MastermindDsl)
+World(CodeBreakerDsl)

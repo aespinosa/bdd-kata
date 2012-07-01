@@ -1,4 +1,4 @@
-module Mastermind
+module CodeBreaker
   class Marker
     def initialize(code, guess)
       @code = code
